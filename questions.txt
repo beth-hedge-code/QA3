@@ -1,0 +1,304 @@
+Principles of Managerial Finance
+    1. What is the primary goal of financial management?
+    A) Minimizing expenses
+    B) Maximizing profits
+    C) Maximizing shareholder wealth ✅
+    D) Increasing market share
+
+    2.Which of the following is a source of long-term financing?
+    A) Trade credit
+    B) Commercial paper
+    C) Common stock ✅
+    D) Bank overdraft
+
+    3. The time value of money concept suggests:
+    A) A dollar today is worth less than a dollar in the future
+    B) Money loses value only due to inflation
+    C) A dollar today is worth more than a dollar in the future ✅
+    D) Future cash flows are not important
+
+    4. The weighted average cost of capital (WACC) is:
+    A) The average interest rate on loans
+    B) The average cost of all assets
+    C) The cost of capital adjusted for inflation
+    D) The average rate of return required by investors ✅
+
+    5. A higher debt-to-equity ratio indicates:
+    A) More equity financing
+    B) More debt financing ✅
+    C) Lower financial leverage
+    D) Stronger profitability
+
+    6. Which financial statement shows a firm’s revenues and expenses?
+    A) Balance Sheet
+    B) Cash Flow Statement
+    C) Statement of Retained Earnings
+    D) Income Statement ✅
+
+    7. Which of the following is a capital budgeting decision?
+    A) Issuing new shares
+    B) Buying new machinery ✅
+    C) Paying dividends
+    D) Borrowing from a bank
+
+    8. If a project's NPV is positive, it means:
+    A) The project should be rejected
+    B) The project's IRR is less than the cost of capital
+    C) The project will destroy value
+    D) The project adds value to the firm ✅
+
+    9. Which financial ratio measures a firm's ability to meet short-term obligations?
+    A) Debt ratio
+    B) Current ratio ✅
+    C) Return on equity
+    D) Inventory turnover
+
+    10. The DuPont identity breaks down ROE into:
+    A) Profit margin, total asset turnover, and equity multiplier ✅
+    B) Gross profit, liabilities, and equity
+    C) Net income, revenue, and capital
+    D) Earnings per share, dividends, and cash flow
+
+Mgmt/Organizational Behavior
+    1. What are the four functions of management?
+    A) Plan, Organize, Control, Hire
+    B) Plan, Lead, Organize, Control ✅
+    C) Lead, Motivate, Supervise, Hire
+    D) Plan, Direct, Sell, Manage
+
+    2. Which of the following is an example of intrinsic motivation?
+    A) Bonus
+    B) Promotion
+    C) Praise
+    D) Personal satisfaction ✅
+
+    3. What does "span of control" refer to?
+    A) The number of departments in a company
+    B) The number of levels in the hierarchy
+    C) The number of subordinates a manager oversees ✅
+    D) The number of tasks a worker completes
+
+    4. According to Maslow’s hierarchy, which need comes first?
+    A) Safety
+    B) Esteem
+    C) Physiological ✅
+    D) Belongingness
+
+    5. Which leadership style is most participative?
+    A) Autocratic
+    B) Democratic ✅
+    C) Laissez-faire
+    D) Transactional
+
+    6. What is organizational culture?
+    A) The company’s product strategy
+    B) The shared values, beliefs, and norms in an organization ✅
+    C) The formal structure of departments
+    D) The employee handbook
+
+    7. Which of the following is NOT a Big Five personality trait?
+    A) Openness
+    B) Conscientiousness
+    C) Intuition ✅
+    D) Agreeableness
+
+    8. A team that works across departments or functions is called:
+    A) A task force
+    B) A cross-functional team ✅
+    C) A line team
+    D) A hierarchical unit
+
+    9. Which conflict-handling style involves low concern for both self and others?
+    A) Competing
+    B) Collaborating
+    C) Avoiding ✅
+    D) Accommodating
+
+    10. What does SWOT analysis evaluate?
+    A) Employee productivity
+    B) Market segmentation
+    C) Strengths, Weaknesses, Opportunities, Threats ✅
+    D) Stock market trends
+
+Business Applications Develop
+    1. What is the primary purpose of business application software?
+    A) Entertainment
+    B) Managing databases
+    C) Solving business problems and improving processes ✅
+    D) Browsing the internet
+
+    2. Which language is commonly used for server-side web application development?
+    A) HTML
+    B) JavaScript
+    C) Python ✅
+    D) CSS
+
+    3. What does CRUD stand for in application development?
+    A) Create, Read, Update, Delete ✅
+    B) Code, Run, Upload, Deploy
+    C) Connect, Route, Update, Display
+    D) Create, Run, Utilize, Design
+
+    4. What is an API used for in application development?
+    A) Designing interfaces
+    B) Connecting and communicating between systems ✅
+    C) Managing databases
+    D) Storing user data
+
+    5. Which of the following is a front-end development tool?
+    A) Django
+    B) Flask
+    C) React ✅
+    D) Node.js
+
+    6. What is the function of a database in a business application?
+    A) Displaying the user interface
+    B) Storing and managing data ✅
+    C) Designing reports
+    D) Sending emails
+
+    7. What is the role of version control (e.g., Git) in development?
+    A) To test software
+    B) To monitor network performance
+    C) To manage changes to source code over time ✅
+    D) To format code
+
+    8. What is the best development methodology for flexibility and rapid change?
+    A) Waterfall
+    B) Agile ✅
+    C) V-Model
+    D) Spiral
+
+    9. What is UML primarily used for?
+    A) Writing database queries
+    B) Creating user interfaces
+    C) Modeling software systems ✅
+    D) Encrypting applications
+
+    10. What does “responsive design” ensure in web applications?
+    A) Secure login
+    B) Fast performance
+    C) Compatibility across devices and screen sizes ✅
+    D) Real-time updates
+
+Business Database Mgmt
+    1. What does SQL stand for?
+    A) Structured Question Language
+    B) Standard Query Language
+    C) Structured Query Language ✅
+    D) System Query Logic
+
+    2. Which command is used to retrieve data from a database?
+    A) GET
+    B) SELECT ✅
+    C) SHOW
+    D) FETCH
+
+    3. What is a primary key?
+    A) A key used to open the database
+    B) A unique identifier for each record in a table ✅
+    C) A foreign key in another table
+    D) A column that can have duplicate values
+
+    4. Which of the following is a relational database management system (RDBMS)?
+    A) Excel
+    B) MongoDB
+    C) Oracle ✅
+    D) Notepad
+
+    5. What is a foreign key used for?
+    A) Encrypting data
+    B) Linking records in different tables ✅
+    C) Identifying primary records
+    D) Creating indexes
+
+    6. What type of relationship exists when one record in a table relates to many records in another table?
+    A) One-to-One
+    B) Many-to-Many
+    C) One-to-Many ✅
+    D) No Relationship
+
+    7. Which SQL statement is used to insert a new record into a table?
+    A) INSERT INTO ✅
+    B) ADD NEW
+    C) CREATE RECORD
+    D) INPUT DATA
+
+    8. What is data normalization?
+    A) A backup process
+    B) Removing all data
+    C) Structuring a database to reduce redundancy ✅
+    D) Encrypting the database
+
+    9. Which clause is used to filter rows returned by a query?
+    A) ORDER BY
+    B) GROUP BY
+    C) WHERE ✅
+    D) HAVING
+
+    10. What does ACID stand for in database systems?
+    A) Access, Control, Information, Data
+    B) Atomicity, Consistency, Isolation, Durability ✅
+    C) Array, Column, Index, Data
+    D) Audit, Copy, Insert, Delete
+
+Principles of Marketing
+    1. What is the core concept of marketing?
+    A) Selling products
+    B) Advertising
+    C) Satisfying customer needs and wants ✅
+    D) Reducing costs
+
+    2. The 4Ps of the marketing mix include Product, Price, Place, and:
+    A) People
+    B) Promotion ✅
+    C) Process
+    D) Packaging
+
+    **3. Which of the following is part of market segmentation?
+    A) Market positioning
+    B) Dividing the market based on shared characteristics ✅
+    C) Branding the product
+    D) Setting prices
+
+    4. What does brand equity refer to?
+    A) The cost of a product
+    B) The value of a brand in the marketplace ✅
+    C) The ownership of the brand
+    D) The product's expiration
+
+    5. What type of marketing focuses on creating long-term relationships with customers?
+    A) Transactional marketing
+    B) Guerrilla marketing
+    C) Relationship marketing ✅
+    D) Direct marketing
+
+    6. A SWOT analysis examines:
+    A) Market prices
+    B) Market segments
+    C) Strengths, Weaknesses, Opportunities, Threats ✅
+    D) Sales growth only
+
+    7. What is the primary goal of promotional strategies?
+    A) To raise product prices
+    B) To create brand loyalty
+    C) To inform, persuade, or remind customers ✅
+    D) To reduce advertising costs
+
+    8. A product's life cycle typically includes: Introduction, Growth, Maturity, and:
+    A) Recovery
+    B) Peak
+    C) Decline ✅
+    D) Termination
+
+    9. What is target marketing?
+    A) Creating ads that appeal to everyone
+    B) Designing products for international markets
+    C) Focusing marketing efforts on specific customer segments ✅
+    D) Targeting competitors' customers
+
+    10. What is a USP (Unique Selling Proposition)?
+    A) The slogan of a brand
+    B) The low price point
+    C) The unique benefit that sets a product apart from competitors ✅
+    D) The place a product is sold
