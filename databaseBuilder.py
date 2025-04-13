@@ -1,35 +1,56 @@
 import sqlite3
 
-# Define function to create a database and insert questions
-def create_database(class_name, questions):
-    # Connect to SQLite database (this will create a new file if it doesn't exist)
-    conn = sqlite3.connect(f"{class_name}.db")
+def create_database(course_name, questions):
+    # Connect to SQLite database (it will be created if it doesn't exist)
+    conn = sqlite3.connect(f"{course_name}.db")
     cursor = conn.cursor()
+
+    cursor.execute('''CREATE TABLE IF NOT EXISTS questions (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    question_text TEXT,
+                    option_A TEXT,
+                    option_B TEXT,
+                    option_C TEXT,
+                    option_D TEXT,
+                    correct_answer TEXT)''')
     
-    # Create a table for the questions
-    cursor.execute('''
-    CREATE TABLE IF NOT EXISTS questions (
-        id INTEGER PRIMARY KEY,
-        question_text TEXT,
-        option_A TEXT,
-        option_B TEXT,
-        option_C TEXT,
-        option_D TEXT,
-        correct_answer TEXT
-    )
-    ''')
-
-    # Insert questions into the table
     for question in questions:
-        cursor.execute('''
-        INSERT INTO questions (question_text, option_A, option_B, option_C, option_D, correct_answer)
-        VALUES (?, ?, ?, ?, ?, ?)
-        ''', (question['question_text'], question['option_A'], question['option_B'], question['option_C'], question['option_D'], question['correct_answer']))
+        cursor.execute('''INSERT INTO questions (question_text, option_A, option_B, option_C, option_D, correct_answer)
+                          VALUES (?, ?, ?, ?, ?, ?)''',
+                       (question['question_text'], question['option_A'], question['option_B'], 
+                        question['option_C'], question['option_D'], question['correct_answer']))
 
-    # Commit the changes and close the connection
+    # Commit changes and close the connection
     conn.commit()
     conn.close()
+    print(f"Database for {course_name} created successfully.")
 
+def get_questions_from_database(course_name):
+    # Connect to the appropriate SQLite database based on the course name
+    conn = sqlite3.connect(f"{course_name}.db")
+    cursor = conn.cursor()
+    
+    # Fetch all questions from the 'questions' table
+    cursor.execute("SELECT question_text, option_A, option_B, option_C, option_D, correct_answer FROM questions")
+    questions = cursor.fetchall()
+    
+    # Close the connection to the database
+    conn.close()
+
+ # Return the questions as a list of dictionaries
+    question_list = []
+    for q in questions:
+        question_list.append({
+            'question_text': q[0],
+            'option_A': q[1],
+            'option_B': q[2],
+            'option_C': q[3],
+            'option_D': q[4],
+            'correct_answer': q[5]
+        })
+    
+    return question_list
+    
 # Define the questions for each class
 principles_of_managerial_finance = [
     {'question_text':"What is the primary goal of financial management?",'option_A': "Minimizing expenses", 'option_B': "Maximizing profits", 'option_C': "Maximizing shareholder wealth", 'option_D': "Increasing market share", 'correct_answer': "C"},
@@ -102,5 +123,8 @@ create_database("Mgmt_Organizational_Behavior", mgmt_organizational_behavior)
 create_database("Business_Applications_Develop", business_applications_develop)
 create_database("Business Database Mgmt", business_database_mgmt)
 create_database("Principles of Marketing", principles_of_marketing)
+
+questions_from_finance = get_questions_from_database("Principles_of_Managerial_Finance")
+print(questions_from_finance)  # This will print the list of questions for the selected class
 
 print("Databases and tables created successfully.")
