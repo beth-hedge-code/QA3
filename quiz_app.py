@@ -335,6 +335,13 @@ def start_quiz():
         if selected:
             if selected == questions[index]['correct_answer']:
                 score += 1
+                feedback = "Correct!"
+            else:
+                feedback = f"Incorrect. The correct answer is {questions[index]['correct_answer']}."
+
+            # Show feedback after each question
+            messagebox.showinfo("Feedback", feedback)
+
             index += 1
             next_question()
         else:
@@ -351,6 +358,11 @@ def start_quiz():
         if not questions:
             messagebox.showinfo("No Questions", "No questions found for this course.")
             return
+        
+        # Show a welcome message after selecting the course
+        welcome_message = f"Welcome to the {course} quiz! Let's begin!"
+        messagebox.showinfo("Welcome", welcome_message)
+
         quiz_selector.destroy()
         next_question()
 
