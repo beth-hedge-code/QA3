@@ -1,5 +1,8 @@
 import sqlite3
 
+#DO NOT run this file or it creates duplicates!
+
+#creates database with course 
 def create_database(course_name, questions):
     # Connect to SQLite database (it will be created if it doesn't exist)
     database_name = f"{course_name}.db"
@@ -16,6 +19,7 @@ def create_database(course_name, questions):
                     correct_answer TEXT)''')
     print("Table 'questions' created (if it didn't exist).")
     
+    #creates the questions and options in database
     for question in questions:
         cursor.execute('''INSERT INTO questions (question_text, option_A, option_B, option_C, option_D, correct_answer)
                           VALUES (?, ?, ?, ?, ?, ?)''',
@@ -27,6 +31,7 @@ def create_database(course_name, questions):
     conn.close()
     print(f"Database for {course_name} created successfully.")
 
+# gets questions from the datbase to be used in quizs
 def get_questions_from_database(course_name):
     # Connect to the appropriate SQLite database based on the course name
     conn = sqlite3.connect(f"{course_name}.db")
@@ -125,8 +130,5 @@ create_database("Mgmt_Organizational_Behavior", mgmt_organizational_behavior)
 create_database("Business_Applications_Develop", business_applications_develop)
 create_database("Business_Database_Mgmt", business_database_mgmt)
 create_database("Principles_of_Marketing", principles_of_marketing)
-
-questions_from_finance = get_questions_from_database("Principles_of_Managerial_Finance")
-print(questions_from_finance)  # This will print the list of questions for the selected class
 
 print("Databases and tables created successfully.")

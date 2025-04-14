@@ -1,7 +1,3 @@
-# let user choose between 
-# 1. An administrator interface for managing quiz content (password-protected)
-# 2. A user interface for taking quizzes
-
 import sqlite3
 from tkinter import *
 from tkinter import messagebox
@@ -13,10 +9,12 @@ def get_questions_from_database(course_name):
     conn = sqlite3.connect(database_name)
     cursor = conn.cursor()
 
+    #gets answer choices
     cursor.execute("SELECT question_text, option_A, option_B, option_C, option_D, correct_answer FROM questions")
     questions = cursor.fetchall()
     conn.close()
 
+    #lists question + answers
     question_list = []
     for q in questions:
         question_list.append({
@@ -40,7 +38,9 @@ def check_password():
 
 # Admin Features
 
+#lets admin add question
 def add_question_gui():
+    #submits question into chosen database
     def submit_question():
         course = course_combobox.get()
         if not course:
@@ -49,7 +49,7 @@ def add_question_gui():
 
         data = (question_entry.get(), option_a.get(), option_b.get(), option_c.get(), option_d.get(), correct_answer.get())
         if not all(data):
-            messagebox.showwarning("Missing Info", "Please fill all fields.")
+            messagebox.showwarning("Missing Info", "Please fill all fields.") #lets user know of error
             return
 
         db_name = f"{course.replace(' ', '_')}.db"
@@ -74,6 +74,7 @@ def add_question_gui():
     window = Toplevel(root)
     window.title("Add New Question")
 
+    #gives users choices of courses
     courses = ["Principles of Managerial Finance", "Mgmt Organizational Behavior", 
                "Business Applications Develop", "Business Database Mgmt", "Principles of Marketing"]
 
@@ -81,10 +82,12 @@ def add_question_gui():
     course_combobox = ttk.Combobox(window, values=courses, width=50, state="readonly")
     course_combobox.pack()
 
+    #formats question
     Label(window, text="Question:").pack()
     question_entry = Entry(window, width=100)
     question_entry.pack()
 
+    #Formats question
     option_a = Entry(window, width=50)
     option_b = Entry(window, width=50)
     option_c = Entry(window, width=50)
@@ -97,9 +100,11 @@ def add_question_gui():
 
     Button(window, text="Submit Question", command=submit_question).pack(pady=10)
 
+#defines view question to allow admin to veiw a courses questions.
 def view_questions_gui():
     def load_questions():
         course = course_combobox.get()
+        # makes user choose course
         if not course:
             messagebox.showwarning("No Course Selected", "Please select a course.")
             return
@@ -124,6 +129,7 @@ def view_questions_gui():
 
     Label(window, text="Select Course:", font=("Arial", 12)).pack(pady=10)
 
+    #gives users choices of courses
     courses = ["Principles of Managerial Finance", "Mgmt Organizational Behavior", 
                "Business Applications Develop", "Business Database Mgmt", "Principles of Marketing"]
 
@@ -135,6 +141,7 @@ def view_questions_gui():
     questions_listbox = Listbox(window, width=110, height=20, font=("Courier", 10))
     questions_listbox.pack(pady=10)
 
+#allows admin to change questions
 def modify_question_gui():
     def load_questions():
         course = course_combobox.get()
@@ -167,6 +174,7 @@ def modify_question_gui():
         question_entry.insert(0, selected_question['question_text'])
         question_entry.pack()
 
+        #changes options in a question
         option_a = Entry(modify_window, width=50)
         option_b = Entry(modify_window, width=50)
         option_c = Entry(modify_window, width=50)
@@ -178,6 +186,7 @@ def modify_question_gui():
             Label(modify_window, text=lbl).pack()
             widget.pack()
 
+        #creates a screen to veiw the courses questions
         def view_questions_gui():
             def load_questions():
                 course = course_combobox.get()
@@ -205,6 +214,7 @@ def modify_question_gui():
 
             Label(window, text="Select Course:", font=("Arial", 12)).pack(pady=10)
 
+            #gives users choices of courses
             courses = ["Principles of Managerial Finance", "Mgmt Organizational Behavior", 
                     "Business Applications Develop", "Business Database Mgmt", "Principles of Marketing"]
 
@@ -216,6 +226,7 @@ def modify_question_gui():
             questions_listbox = Listbox(window, width=110, height=20, font=("Courier", 10))
             questions_listbox.pack(pady=10)
 
+        #allows users to submit what the modified
         def submit_modifications():
             data = (question_entry.get(), option_a.get(), option_b.get(), option_c.get(), option_d.get(), correct_answer.get())
             if not all(data):
@@ -255,6 +266,7 @@ def modify_question_gui():
     questions_listbox.pack(pady=10)
     Button(window, text="Modify Selected Question", command=modify_selected).pack(pady=5)
 
+#allows admin to delet questions
 def delete_question_gui():
     def load_questions():
         course = course_combobox.get()
@@ -272,6 +284,7 @@ def delete_question_gui():
         except Exception as e:
             messagebox.showerror("Error", str(e))
 
+    #deletes question
     def delete_selected():
         idx = questions_listbox.curselection()
         if not idx:
@@ -311,12 +324,15 @@ def admin_interface():
     window.title("Admin Dashboard")
     window.geometry("300x300")
 
+    #provides admin 4 choices
     Button(window, text="Add Question", width=25, command=add_question_gui).pack(pady=10)
     Button(window, text="View Questions", width=25, command=view_questions_gui).pack(pady=10)
     Button(window, text="Modify Questions", width=25, command=modify_question_gui).pack(pady=10)
     Button(window, text="Delete Questions", width=25, command=delete_question_gui).pack(pady=10)
 
+#Sets up user's quiz
 def start_quiz():
+    #takes user to next question
     def next_question():
         nonlocal index, score
         if index < len(questions):
@@ -325,13 +341,16 @@ def start_quiz():
             var.set(None)
             for i, opt in enumerate(['A', 'B', 'C', 'D']):
                 options[i].config(text=f"{opt}. {q[f'option_{opt}']}")
+        #shows user final score
         else:
             messagebox.showinfo("Quiz Finished", f"Your score: {score}/{len(questions)}")
             quiz_window.destroy()
 
+    #Controls what happens after user submits answer
     def submit_answer():
         nonlocal index, score
         selected = var.get()
+        #Keeps track of score and provides feedback
         if selected:
             if selected == questions[index]['correct_answer']:
                 score += 1
@@ -347,6 +366,7 @@ def start_quiz():
         else:
             messagebox.showwarning("No Selection", "Please select an answer.")
 
+    #starts quiz
     def load_questions_and_start():
         course = course_combobox.get()
         if not course:
@@ -370,6 +390,7 @@ def start_quiz():
     quiz_selector.title("Choose Course")
     Label(quiz_selector, text="Select Course to Begin Quiz").pack(pady=10)
 
+    #gives users choices of courses
     courses = ["Principles of Managerial Finance", "Mgmt Organizational Behavior", 
                "Business Applications Develop", "Business Database Mgmt", "Principles of Marketing"]
     course_combobox = ttk.Combobox(quiz_selector, values=courses, width=50, state="readonly")
@@ -391,6 +412,7 @@ def start_quiz():
 
     Button(quiz_window, text="Submit", command=submit_answer).pack(pady=20)
 
+    #resets list and scores
     questions = []
     index = 0
     score = 0
@@ -412,6 +434,7 @@ def show_password_prompt():
     login_window.title("Admin Login")
     login_window.geometry("300x150")
 
+    #creates a place to put admin passcode
     Label(login_window, text="Enter Admin Password:").pack(pady=10)
     password_entry = Entry(login_window, show="*", width=30)
     password_entry.pack(pady=5)
