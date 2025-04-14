@@ -2,6 +2,7 @@ import sqlite3
 
 def create_database(course_name, questions):
     # Connect to SQLite database (it will be created if it doesn't exist)
+    database_name = f"{course_name}.db"
     conn = sqlite3.connect(f"{course_name}.db")
     cursor = conn.cursor()
 
@@ -13,6 +14,7 @@ def create_database(course_name, questions):
                     option_C TEXT,
                     option_D TEXT,
                     correct_answer TEXT)''')
+    print("Table 'questions' created (if it didn't exist).")
     
     for question in questions:
         cursor.execute('''INSERT INTO questions (question_text, option_A, option_B, option_C, option_D, correct_answer)
@@ -37,7 +39,7 @@ def get_questions_from_database(course_name):
     # Close the connection to the database
     conn.close()
 
- # Return the questions as a list of dictionaries
+    # Return the questions as a list of dictionaries
     question_list = []
     for q in questions:
         question_list.append({
@@ -121,8 +123,8 @@ principles_of_marketing = [
 create_database("Principles_of_Managerial_Finance", principles_of_managerial_finance)
 create_database("Mgmt_Organizational_Behavior", mgmt_organizational_behavior)
 create_database("Business_Applications_Develop", business_applications_develop)
-create_database("Business Database Mgmt", business_database_mgmt)
-create_database("Principles of Marketing", principles_of_marketing)
+create_database("Business_Database_Mgmt", business_database_mgmt)
+create_database("Principles_of_Marketing", principles_of_marketing)
 
 questions_from_finance = get_questions_from_database("Principles_of_Managerial_Finance")
 print(questions_from_finance)  # This will print the list of questions for the selected class
