@@ -1,8 +1,8 @@
-# QA3
+# Course Quiz Giver
 
-Hello welcome to my code!
+In this program there are two roles
 
-You can become an admin or be a user and take a quiz
+You can become an admin and change details about the quiz
 
 Admin----
     Admin Passcode = admin123
@@ -11,6 +11,8 @@ Admin----
                 Modifiy questions
                 delete questions
                 add questions
+
+Or you can be a user and take quizes based on user selected courses
 
 Users----
     Open to everyone
@@ -22,6 +24,6 @@ Users----
 
 All questions are apart of 5 different courses!
 Principles of Managerial Finance, Mgmt Organizational Behavior, Business Applications Develop, Business Database Mgmt, Principles of Marketing
-Each course has 10 preset questions!
+Each course has 10 preset questions which are viewable through the questions.txt!
 
-Please ignore the txt file it holds all the orginal questions and answers just in case you need it ;)
+This project uses SQL Lite for database storage and tkinter for the GUI
