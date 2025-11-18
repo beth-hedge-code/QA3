@@ -26,4 +26,4 @@ All questions are apart of 5 different courses!
 Principles of Managerial Finance, Mgmt Organizational Behavior, Business Applications Develop, Business Database Mgmt, Principles of Marketing
 Each course has 10 preset questions which are viewable through the questions.txt!
 
-This project uses SQL Lite for database storage and tkinter for the GUI
+This project uses SQLite for database storage and tkinter for the GUI
